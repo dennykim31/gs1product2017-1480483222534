@@ -26,11 +26,22 @@ def WelcomeToMyapp():
     return 'Welcome again to my app running on Bluemix!'
 
 @app.route('/api/people')
+#new
+import json
+import http.client, urllib.parse
+import pprint
+conn = http.client.HTTPConnection("211.174.220.74:8080")
+headers = {}
+conn.request("GET", "/product/8803451227376.json", headers=headers)
+res = conn.getresponse()
+data = res.read()
+decoded_data = data.decode("utf-8")
+dict_data = json.loads(decoded_data)
+gsdata = dict_data['data']['product']
+#new
+
 def GetPeople():
-    list = [
-        {'name': 'John', 'age': 28},
-        {'name': 'Bill', 'val': 26}
-    ]
+    list = [gsdata]
     return jsonify(results=list)
 
 @app.route('/api/people/<name>')
