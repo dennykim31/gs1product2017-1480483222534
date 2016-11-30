@@ -26,7 +26,7 @@ def WelcomeToMyapp():
     return 'Welcome again to my app running on Bluemix!'
 
 @app.route('/api/people')
-#new
+'''
 import json
 import http.client, urllib.parse
 import pprint
@@ -38,10 +38,12 @@ data = res.read()
 decoded_data = data.decode("utf-8")
 dict_data = json.loads(decoded_data)
 gsdata = dict_data['data']['product']
-#new
+'''
 
 def GetPeople():
-    list = [gsdata]
+    list = [  {'id'='gs121'},
+        {'type'='agri'},
+           {'brand'='1'}]
     return jsonify(results=list)
 
 @app.route('/api/people/<name>')
