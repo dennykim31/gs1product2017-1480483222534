@@ -1,0 +1,11 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  domain: mybluemix.net
+  name: gs1product2017
+  host: gs1product2017
+  disk_quota: 1024M
+  services:
+  - availability-monitoring-auto
+  buildpack: python_buildpack
